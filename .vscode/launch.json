@@ -1,0 +1,13 @@
+﻿{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Open Serial Monitor",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${command:platformio-ide.upload}",
+      "preLaunchTask": "PlatformIO: Monitor",
+      "miDebuggerPath": ""
+    }
+  ]
+}
