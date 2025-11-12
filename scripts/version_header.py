@@ -1,4 +1,4 @@
-﻿import os, subprocess, datetime
+import os, subprocess, datetime
 from pathlib import Path
 
 def git(cmd):

@@ -1,1 +1,1 @@
-﻿Local reusable libraries live here.
+Local reusable libraries live here.

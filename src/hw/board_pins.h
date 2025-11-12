@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 // LCD
 #define PIN_TFT_CS   15
 #define PIN_TFT_DC    2

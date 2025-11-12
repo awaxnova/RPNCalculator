@@ -1,4 +1,4 @@
-﻿#include <lvgl.h>
+#include <lvgl.h>
 
 static void btn_event_cb(lv_event_t * e) {
   lv_obj_t * label = (lv_obj_t*)lv_event_get_user_data(e);

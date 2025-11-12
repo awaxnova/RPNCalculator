@@ -1,4 +1,4 @@
-﻿
+
 # $ProjectName
 
 ESP32-32E + 4.0\" ST7796S (320x480) + resistive touch (XPT2046-style), LVGL UI.

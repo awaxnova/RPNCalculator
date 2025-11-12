@@ -1,4 +1,4 @@
-﻿#include <Arduino.h>
+#include <Arduino.h>
 #include <unity.h>
 #include "src/rpn/stack.h"
 #include "src/rpn/ops.h"

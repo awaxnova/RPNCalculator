@@ -1,1 +1,1 @@
-﻿Place LittleFS assets here (fonts, themes, JSON).
+Place LittleFS assets here (fonts, themes, JSON).

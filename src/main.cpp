@@ -1,4 +1,4 @@
-﻿#include <Arduino.h>
+#include <Arduino.h>
 #include "app_config.h"
 #include "hw/board_hw.h"
 #include "ui/lvgl_port.h"
