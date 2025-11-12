@@ -4,8 +4,12 @@
 #include "ui_demo.h"
 #include "../hw/board_pins.h"
 
-static TFT_eSPI tft;       // uses build_flags pin defs
-static lv_display_t *disp; // LVGL display
+static TFT_eSPI tft;           // uses build_flags pin defs
+static lv_display_t *disp;     // LVGL display
+static lv_display_t *dispDflt; // LVGL default display
+
+int32_t disp_w;
+int32_t disp_h;
 static lv_indev_t *touchscreen;
 
 static const uint32_t screenWidth = 320;
@@ -35,9 +39,14 @@ static void touch_read_cb(lv_indev_t *indev, lv_indev_data_t *data)
   bool touched = tft.getTouch(&x, &y, 600);
   if (touched)
   {
+
+    // ... after you computed (x, y) in screen pixels ...
+    y = (disp_h - 1) - y; // flip Y
     data->state = LV_INDEV_STATE_PRESSED;
     data->point.x = x;
     data->point.y = y;
+
+    LV_LOG_USER("tap: %d,%d", data->point.x, data->point.y);
   }
   else
   {
@@ -64,6 +73,13 @@ void ui_init()
   disp = lv_display_create(screenWidth, screenHeight);
   lv_display_set_flush_cb(disp, disp_flush_cb);
   lv_display_set_buffers(disp, buf1, nullptr, buf_pixels * sizeof(lv_color_t), LV_DISPLAY_RENDER_MODE_PARTIAL);
+
+  dispDflt = lv_display_get_default();
+  disp_w = lv_display_get_horizontal_resolution(dispDflt);
+  disp_h = lv_display_get_vertical_resolution(dispDflt);
+
+  // lv_display_set_rotation(dispDflt, LV_DISPLAY_ROTATION_180);
+  //  or LV_DISPLAY_ROTATION_90 / _270 depending on your hardware
 
   // Touch
   lv_indev_t *indev = lv_indev_create();
